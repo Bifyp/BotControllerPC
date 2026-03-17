@@ -1,52 +1,119 @@
-# Windows PC Controller Bot v3.2
+<div align="center">
 
-Telegram-бот для удалённого управления Windows-компьютером.
+```
+██████╗  ██████╗    ██████╗ ████████╗██████╗██╗     
+██╔══██╗██╔════╝   ██╔════╝╚══██╔══╝██╔══██╗██║     
+██████╔╝██║        ██║        ██║   ██████╔╝██║     
+██╔═══╝ ██║        ██║        ██║   ██╔══██╗██║     
+██║     ╚██████╗   ╚██████╗   ██║   ██║  ██║███████╗
+╚═╝      ╚═════╝    ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
 
-## Возможности
+     ██████╗  ██████╗ ████████╗    ██╗   ██╗██████╗ 
+     ██╔══██╗██╔═══██╗╚══██╔══╝    ██║   ██║╚════██╗
+     ██████╔╝██║   ██║   ██║       ██║   ██║ █████╔╝
+     ██╔══██╗██║   ██║   ██║        ██╗ ██╔╝ ╚═══██╗
+     ██████╔╝╚██████╔╝   ██║         ╚████╔╝ ██████╔╝
+     ╚═════╝  ╚═════╝    ╚═╝          ╚═══╝  ╚═════╝ 
+```
 
-- **Скриншот** — получение текущего экрана
-- **Голос** — произнести текст через TTS (edge-tts / pyttsx3)
-- **Громкость** — управление системной громкостью
-- **Поиск на YouTube** — открыть видео в браузере
-- **Системная информация** — CPU, RAM, диски
-- **Управление пользователями** — whitelist (adduser / removeuser)
-- **Выключение/перезагрузка** — команды питания
-- **Inline-кнопки** — удобное меню управления
+**`// WINDOWS PC CONTROLLER BOT v3.2`**
 
-## Требования
+*telegram-бот · удалённое управление · Win32 API · whitelist-безопасность*
 
-- Python 3.10+
-- Windows (основные функции используют Win32 API)
+---
 
-## Установка
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Telegram](https://img.shields.io/badge/Telegram-Bot_API-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://core.telegram.org/bots)
+[![Windows](https://img.shields.io/badge/Windows-Win32_API-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com)
+[![TTS](https://img.shields.io/badge/TTS-edge--tts%20%7C%20pyttsx3-FF007A?style=for-the-badge)](https://github.com)
+[![Security](https://img.shields.io/badge/Security-Whitelist-00FFCC?style=for-the-badge)](https://github.com)
+
+</div>
+
+---
+
+```
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║                                                                      ║
+  ║   TELEGRAM CLIENT          INTERNET           WINDOWS HOST           ║
+  ║   ────────────────         ────────           ─────────────────      ║
+  ║   [ /screenshot ]  ──━━━━━━━━━━━━━━━━━━━━━  bot_controller.py        ║
+  ║   [ /sysinfo     ]                            ├── Win32 API          ║
+  ║   [ /say <text>  ]  ━━━━━━━━━━━━━━━━━━━━━━  ├── TTS Engine           ║
+  ║   [ /volume 80   ]                            ├── Volume Control     ║
+  ║   [ /off         ]                            └── Power Management   ║
+  ║                                                                      ║
+  ║   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░     ║
+  ║   STATUS: // ONLINE   ▌  SECURITY: WHITELIST   ▌  OS: WINDOWS        ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## `> SYSTEM.FEATURES`
+
+| МОДУЛЬ | ОПИСАНИЕ | СТАТУС |
+|:-------|:---------|:------:|
+| `SCREENSHOT` | Захват и отправка текущего экрана | `[ACTIVE]` |
+| `TTS_ENGINE` | Произнести текст через edge-tts / pyttsx3 | `[ACTIVE]` |
+| `VOLUME_CTRL` | Управление системной громкостью (0–100) | `[ACTIVE]` |
+| `YOUTUBE` | Поиск и открытие видео в браузере | `[ACTIVE]` |
+| `SYSINFO` | CPU · RAM · диски — в реальном времени | `[ACTIVE]` |
+| `USER_MGMT` | Whitelist: adduser / removeuser (только admin) | `[ACTIVE]` |
+| `POWER_CTRL` | Выключение и перезагрузка ПК | `[ACTIVE]` |
+| `INLINE_MENU` | Inline-кнопки — удобное меню управления | `[ACTIVE]` |
+
+---
+
+## `> QUICK.BOOT`
+
+### Требования
+
+```
+Runtime   ─── Python 3.10+
+Platform  ─── Windows (Win32 API)
+Account   ─── Telegram Bot Token (@BotFather)
+```
+
+### `// STEP 1 — клонирование`
 
 ```bash
-# Клонировать репозиторий
 git clone https://github.com/your_username/your_repo.git
 cd your_repo/Bot
+```
 
-# Создать виртуальное окружение
+### `// STEP 2 — виртуальное окружение`
+
+```bash
 python -m venv .venv
 .venv\Scripts\activate
+```
 
-# Установить зависимости
+### `// STEP 3 — зависимости`
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Настройка
+### `// STEP 4 — переменные окружения`
 
-1. Создайте бота через [@BotFather](https://t.me/BotFather) и получите токен.
-2. Узнайте свой Telegram ID (например, через [@userinfobot](https://t.me/userinfobot)).
-3. Скопируйте `.env.example` в `.env` и заполните:
+```bash
+cp .env.example .env
+```
+
+Заполните `.env`:
 
 ```env
+# ── BOT ───────────────────────────────────────────
 BOT_TOKEN=ваш_токен_бота
+
+# ── ACCESS CONTROL ────────────────────────────────
 MASTER_ADMIN_ID=ваш_telegram_id
 ```
 
-Или установите переменные окружения вручную перед запуском.
+> Получить токен — `@BotFather` · Узнать свой ID — `@userinfobot`
 
-## Запуск
+### `// STEP 5 — запуск`
 
 ```bash
 # Через Python
@@ -56,35 +123,78 @@ python bot_controller.py
 start_bot.bat
 ```
 
-## Команды бота
+---
 
-| Команда | Описание |
-|---------|----------|
-| `/start` | Главное меню |
-| `/say <текст>` | Произнести текст |
-| `/volume <0-100>` | Установить громкость |
-| `/sc <запрос>` | Найти на YouTube |
-| `/screenshot` | Скриншот экрана |
-| `/sysinfo` | Информация о системе |
-| `/adduser <id>` | Добавить пользователя (только admin) |
-| `/removeuser <id>` | Удалить пользователя (только admin) |
-| `/off` | Выключить ПК |
+## `> COMMAND.TABLE`
 
-## Безопасность
+```
+╔═══════════════════════════╦══════════════════════════════════════════╗
+║   КОМАНДА                 ║   ОПИСАНИЕ                               ║
+╠═══════════════════════════╬══════════════════════════════════════════╣
+║  /start                   ║  Главное меню                            ║
+║  /screenshot              ║  Скриншот экрана                         ║
+║  /sysinfo                 ║  CPU · RAM · диски                       ║
+╠═══════════════════════════╬══════════════════════════════════════════╣
+║  /say <текст>             ║  Произнести текст (TTS)                  ║
+║  /volume <0-100>          ║  Установить громкость                    ║
+║  /sc <запрос>             ║  Найти на YouTube                        ║
+╠═══════════════════════════╬══════════════════════════════════════════╣
+║  /adduser <id>          ║  Добавить пользователя в whitelist         ║
+║  /removeuser <id>       ║  Удалить пользователя из whitelist         ║
+║  /off                   ║  Выключить ПК                              ║
+╚═══════════════════════════╩══════════════════════════════════════════╝
+                                                         только admin
+```
 
-- Бот работает по whitelist — только разрешённые пользователи могут отправлять команды
-- `MASTER_ADMIN_ID` имеет полный доступ и не может быть удалён из whitelist
-- Никогда не публикуйте токен бота в открытом виде
+---
 
-## Структура проекта
+## `> SECURITY.PROTOCOL`
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   [!] WHITELIST MODE                                            │
+│       Только разрешённые пользователи могут отправлять команды  │
+│                                                                 │
+│   [!] MASTER_ADMIN_ID                                           │
+│       Полный доступ · не может быть удалён из whitelist         │
+│                                                                 │
+│   [!] BOT TOKEN                                                 │
+│       Никогда не публикуйте токен в открытом виде               │
+│       Не коммитьте .env в репозиторий                           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## `> ARCHITECTURE.MAP`
 
 ```
 Bot/
-├── bot_controller.py   # Основной файл бота
-├── bot_config.json     # Конфигурация (громкость, TTS и т.д.)
-├── whitelist.json      # Список разрешённых пользователей
-├── requirements.txt    # Зависимости Python
-├── start_bot.bat       # Быстрый запуск (Windows)
-├── start_bot.vbs       # Запуск в фоне (Windows)
-└── .env.example        # Шаблон переменных окружения
+│
+├── bot_controller.py     основной файл бота
+├── bot_config.json       конфигурация (громкость, TTS и т.д.)
+├── whitelist.json        список разрешённых пользователей
+├── requirements.txt      зависимости Python
+│
+├── start_bot.bat         быстрый запуск (Windows)
+├── start_bot.vbs         запуск в фоне (Windows)
+│
+└── .env.example          шаблон переменных окружения
 ```
+
+---
+
+<div align="center">
+
+```
+ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+ ░                                                    ░
+ ░       // YOUR PC.  YOUR RULES.  ANYWHERE.          ░
+ ░                  PC CTRL BOT v3.2                  ░
+ ░                                                    ░
+ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+```
+
+</div>
