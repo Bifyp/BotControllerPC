@@ -1,0 +1,10 @@
+{
+  "max_volume": 80,
+  "voice_speed": 1.0,
+  "voice_pitch": 1.0,
+  "startup_notification": true,
+  "enable_voice_commands": true,
+  "security_level": "high",
+  "log_all_commands": true,
+  "backup_voice_enabled": true
+}

@@ -1,0 +1,9 @@
+python-telegram-bot==22.6
+mss==10.1.0
+psutil==7.2.2
+pyautogui==0.9.54
+pycaw==20251023
+pyttsx3==2.99
+edge-tts==7.2.7
+tabulate==0.10.0
+httpx==0.28.1
