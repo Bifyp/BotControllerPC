@@ -78,8 +78,8 @@ Account   ─── Telegram Bot Token (@BotFather)
 ### `// STEP 1 — клонирование`
 
 ```bash
-git clone https://github.com/your_username/your_repo.git
-cd your_repo/Bot
+git clone https://github.com/Bifyp/BotControllerPC
+cd BotControllerPC/Bot
 ```
 
 ### `// STEP 2 — виртуальное окружение`
